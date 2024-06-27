@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Javascript-5</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .error {
+            color: red;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name"><span class="error" id="nameError"></span><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email"><span class="error" id="emailError"></span><br><br>
+        <label for="website">Website:</label>
+        <input type="url" id="website"><span class="error" id="websiteError"></span><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" rows="10" cols="20"></textarea><span class="error" id="messageError"></span><br><br>
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            let isValid = true;
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const website = document.getElementById('website').value;
+            const message = document.getElementById('message').value;
+
+            if (!name) {
+                document.getElementById('nameError').innerText = 'This field is required';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').innerText = '';
+            }
+
+            if (!email) {
+                document.getElementById('emailError').innerText = 'A valid email address is required';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            if (!website) {
+                document.getElementById('websiteError').innerText = 'A vaild url is required';
+                isValid = false;
+            } else {
+                document.getElementById('websiteError').innerText = '';
+            }
+
+            if (!message) {
+                document.getElementById('messageError').innerText = 'This field is required';
+                isValid = false;
+            } else {
+                document.getElementById('messageError').innerText = '';
+            }
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
